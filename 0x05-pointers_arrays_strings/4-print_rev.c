@@ -10,26 +10,20 @@
 
 void print_rev(char *s)
 {
-	int i = 0;
+	int length = 0;
 	int j;
 	char c = *s;
-	
-	if (c  == '\0')
-		return;
-	else
-	{
+
 		while (c != '\0')
 		{
-			i++;
-			c = *(s + i);
+			length++;
+			c = *(s + length);
 		}
-		printf("%d",i);
-		for (j = i; j >= 0; j--)
+		for (j = length - 1; j > -1; j--)
 		{
 			_putchar(*(s + j));
 		}
 		_putchar('\n');
-	}
 }
 
 
