@@ -1,8 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-
-
-int custom_strlen(const char *str);
 
 /**
  *  cap_string - capitalize the string
@@ -13,9 +9,8 @@ int custom_strlen(const char *str);
 char *cap_string(char *s)
 {
 	int i;
-	int length_s = custom_strlen(s);
 
-	for (i = 0; i < length_s; i++)
+	for (i = 0; i != '\0'; i++)
 	{
 		int is_separator = 0;
 
@@ -66,21 +61,4 @@ char *cap_string(char *s)
 	}
 	return (s);
 }
-/**
- * custom_strlen - the length
- * @str: the string
- *
- * Return: lenght
- */
 
-int custom_strlen(const char *str)
-{
-	int length = 0;
-
-	while (*str != '\0')
-	{
-		length++;
-		str++;
-	}
-	return (length);
-}
