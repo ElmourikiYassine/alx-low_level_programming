@@ -1,29 +1,33 @@
 #include "main.h"
+#include <stdio.h>
 
 
 int custom_strlen(const char *str);
 
 /**
- * _strcat - concatinat the the string to the other
+ * _strncpy - concatinat the the string to the other antel n step
  * @dest: destination
  * @src: source
+ * @n: the step to stop at
  *
  *  Return: destination
  */
-char *_strcat(char *dest, const char *src)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int length_src = custom_strlen(src);
-	int length_dest = custom_strlen(dest);
-	int i, j;
+	int i;
 
-	for (i = length_dest, j = 0; i <= length_src + length_dest; i++, j++)
+	for (i = 0; i < n; i++)
 	{
-		dest[i] = src[j];
+		dest[i] = src[i];
+		if (src[i] == '\0')
+			break;
 	}
+	for (; i < n; i++)
+		dest[i] = '\0';
 	return (dest);
 }
 /**
- * custom_strlen - the lenght
+ * custom_strlen - the length
  * @str: the string
  *
  * Return: lenght
