@@ -24,7 +24,6 @@ char *cap_string(char *s)
 				break;
 			case 9:
 				is_separator = 1;
-				s[i] = 32;
 				break;
 			case 46:
 				is_separator = 1;

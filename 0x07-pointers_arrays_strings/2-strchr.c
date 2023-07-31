@@ -8,6 +8,7 @@
  */
 char *_strchr(char *s, char c)
 {
+<<<<<<< HEAD
 
 	while (*s != '\0')
 	{
@@ -17,3 +18,16 @@ char *_strchr(char *s, char c)
 	}
 	return (NULL);
 }
+=======
+	char *ptr = s;
+
+	while (*ptr != '\0')
+	{
+		if (*ptr == c)
+			return (ptr);
+		ptr++;
+	}
+	return (NULL);
+}
+
+>>>>>>> 7710862... task_2

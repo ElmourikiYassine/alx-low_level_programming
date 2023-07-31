@@ -14,4 +14,5 @@ void print_array(int *a, int n);
 void print_number(int n);
 char *_strcpy(char *dest, const char *src);
 int _atoi(char *s);
+
 #endif 
