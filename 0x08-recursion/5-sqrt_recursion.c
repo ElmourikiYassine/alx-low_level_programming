@@ -6,17 +6,15 @@
  *
  * Return: the square root
  */
-
 int s_root(int n, int start, int end);
 
 int _sqrt_recursion(int n)
 {
 	int sqrt;
 
-	if (n == 0)
-		return (0);
-	if (n == 1)
-		return (1);
+	if (n == 0 || n == 1)
+		return (n);
+
 	if (n < 0)
 		return (-1);
 
@@ -35,7 +33,7 @@ int _sqrt_recursion(int n)
 
 int s_root(int n, int start, int end)
 {
-	int mid;
+	long int mid;
 
 	if (start > end)
 		return (-1);
@@ -49,7 +47,5 @@ int s_root(int n, int start, int end)
 
 	else
 		return (s_root(n, mid + 1, end));
-
-	return (-2);
 }
 
