@@ -1,92 +1,38 @@
 #include "main.h"
 #include <stdlib.h>
-#include <unistd.h>
+#include <stdio.h>
 
 /**
  * main - check the code
- * @str: the string
+ * @argc: arguments count
+ * @argv: arguments
  *
  * Return: Always 0.
  */
 
-void _puts(char *str);
-int _atoi(char *s);
-
 int main(int argc, char *argv[])
 {
+	int i, n;
 
-	int i, j, n;
-	unsigned int mod = 10;
-
-	if (argc <= 1)
-	{
-		_puts("Error");
-		return (1);
-	}
+	if (argc == 1)
+		n = 0;
 	for (i = 1; i < argc; i++)
 	{
-		n += _atoi(argv[i]);
+		if (_atoi(argv[i]) == 0 && argv[i][0] != '0')
+		{
+			printf("%s\n", "Error");
+			return (1);
+		}
+		else
+		{
+			n += _atoi(argv[i]);
+		}
 	}
-	if (n < 0)
-	{
-		_putchar('-');
-		n = -n;
-	}
-	while ((unsigned int) n % mod != (unsigned int) n)
-	{
-		i++;
-		mod *= 10;
-	}
-
-	for (j = 0; j <= i; j++)
-	{
-		mod /= 10;
-		if (mod != 0)
-			_putchar((n / mod) % 10 + '0');
-	}
-	_putchar('\n');
+	printf("%d\n", n);
 
 	return (0);
 }
 
-/**
- *   _puts - prints the string
- * @str: the string
- *
- * Return: noting
- */
-
-
-void _puts(char *str)
-{
-	int i = 0;
-	int j;
-	char c = *str;
-
-	while (c != '\0')
-	{
-		i++;
-		c = *(str + i);
-	}
-	for (j = 0; j < i; j++)
-	{
-		_putchar(*(str + j));
-	}
-	_putchar('\n');
-}
-
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 
 /**
  *  _pow - calculate the power
@@ -117,7 +63,6 @@ int _pow(int a, int b)
  */
 int _atoi(char *s)
 {
-
 	int i, j, index, signe;
 	unsigned int result;
 	int *xtrac_num;
@@ -128,14 +73,11 @@ int _atoi(char *s)
 	result = 0;
 	signe = 1;
 
-
 	while (*str != '\0')
 	{
-
 		length++;
 		str++;
 	}
-
 	xtrac_num = (int *) malloc(sizeof(int) * length);
 
 	for (i = 0; i <= length; i++)
@@ -156,7 +98,6 @@ int _atoi(char *s)
 		result += xtrac_num[j] * _pow(10, index - j - 1);
 	}
 		result = (unsigned int) signe * result;
-
 	free(xtrac_num);
 	return (result);
 }
