@@ -8,7 +8,6 @@
  *
  * Return: Pointer to the reallocated memory block.
  */
-
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 		char *old = (char *)ptr;
