@@ -1,0 +1,36 @@
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdio.h>
+
+/**
+ * print_strings - prints strings, followed by a new line.
+ * @separator: the char to separate between numbers.
+ * @n: the number of optional arguments.
+ *
+ * Return: the sum of all the optional arguments.
+ */
+void print_strings(const char *separator, const unsigned int n, ...)
+{
+	va_list ap;
+	char *string;
+	int i;
+
+	va_start(ap, n);
+
+	for (i = 0; i < (int) n; i++)
+	{
+		string = va_arg(ap, char *);
+
+		if (string == NULL)
+			printf("(nil)");
+		else
+			printf("%s", string);
+
+		if (separator && i != (int) (n - 1))
+			printf("%s", separator);
+	}
+
+	printf("\n");
+	va_end(ap);
+}
+
