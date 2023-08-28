@@ -6,20 +6,23 @@
  *
  * Return: Value stored in the head node.
  */
+
 int pop_listint(listint_t **head)
 {
-	/* Store the value of the head node */
-	listint_t *h = *head;
-	int n = h->n;
+	int node;
+	listint_t *temp, *next;
 
-	/* Check if the list is empty */
 	if (*head == NULL)
 		return (0);
 
-	/* Update the head and free the previous head node */
-	*head = h->next;
-	free(h);
+	temp = *head;
+	next = temp->next;
+	node = temp->n;
 
-	return (n);
+	free(temp);
+
+	*head = next;
+
+	return (node);
 }
 
