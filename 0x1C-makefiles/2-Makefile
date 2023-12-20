@@ -12,7 +12,7 @@ OBJ = $(SRC:.c=.o)
 NAME = school
 
 # The all rule that builds the executable
-all: $(NAME)
+all: $(OBJ)
 
 # Rule for building the executable
 $(NAME): $(OBJ) 
