@@ -1,23 +1,27 @@
 # -*- Makefile -*-
-## Define the compiler
-CC := gcc
+# Define the compiler
+CC = gcc
 
 # Define the source files
-SRC := $(wildcard *.c)
+SRC = main.c school.c
 
-# Define the object files
-OBJ := $(SRC:.c=.o)
+# Define the objects
+OBJ = $(SRC:.c=.o)
 
-# Define the name of the executable
-NAME := school
+# Define the name of the exe
+NAME = school
 
 # The all rule that builds the executable
 all: $(NAME)
 
 # Rule for building the executable
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+$(NAME): $(OBJ) 
+	$(CC) $(OBJ) -o $(NAME) 
 
-# Pattern rule for object files
-%.o: %.c
-	$(CC) -c $< -o $@
+# Rule for building main.c
+main.o: main.c
+	$(CC) -c -o main.o main.c
+
+# Rule for building shool.c
+school.o: school.c
+	$(CC) -c -o school.o school.c
