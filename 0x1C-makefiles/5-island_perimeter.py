@@ -1,12 +1,10 @@
 #!/usr/bin/python3
+"""
+    Calculate the perimeter of an island in a grid.
+"""
 
 def island_perimeter(grid):
-    """
-    Calculate the perimeter of an island in a grid.
-    0 represents a water zone, 1 represents a land zone.
-    Cells are connected horizontally/vertically (not diagonally).
-    The grid is rectangular, surrounded by water, and contains a single island without lakes.
-    """
+    """Calculate the perimeter of an island in a grid."""
     rows = len(grid)
     cols = len(grid[0]) if rows else 0
     perimeter = 0
@@ -27,4 +25,3 @@ def island_perimeter(grid):
                 if c == cols-1 or grid[r][c+1] == 0:
                     perimeter += 1
     return perimeter
-
