@@ -1,9 +1,14 @@
 # -*- Makefile -*-
+# Define the compiler
 
 CC := gcc
+
+# Define the source files
 SRC := $(wildcard *.c)
 
+# The all rule that builds the executable
 all: school
 
+# Rule for building the executable
 school:
 	$(CC) $(SRC) -o school
